@@ -7,34 +7,36 @@ import java.util.*;
 public class BBT_binary_search {
 
     binary_search bs = new binary_search();
+@Test
+void testLeftElement() {
+    ArrayList<Integer> list =
+        new ArrayList<>(Arrays.asList(1, 3, 5, 7, 9));
 
-    @Test
-    void testElementFound() {
-        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1, 3, 5, 7, 9));
-        int result = bs.binarySearch(list, 0, list.size() - 1, 7);
-        assertEquals(3, result);
-    }
+    int result = bs.binarySearch(list, 0, list.size() - 1, 1);
 
-    @Test
-    void testElementNotFound() {
-        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(2, 4, 6, 8));
-        int result = bs.binarySearch(list, 0, list.size() - 1, 5);
-        assertEquals(-1, result);
-    }
+    assertEquals(0, result);
+}
 
-    @Test
-    void testSingleElementFound() {
-        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(10));
-        int result = bs.binarySearch(list, 0, list.size() - 1, 10);
-        assertEquals(0, result);
-    }
+@Test
+void testMidElement() {
+    ArrayList<Integer> list =
+        new ArrayList<>(Arrays.asList(1, 3, 5, 7, 9));
 
-    @Test
-    void testSingleElementNotFound() {
-        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(10));
-        int result = bs.binarySearch(list, 0, list.size() - 1, 5);
-        assertEquals(-1, result);
-    }
+    int result = bs.binarySearch(list, 0, list.size() - 1, 5);
+
+    assertEquals(2, result);
+}
+
+
+@Test
+void testRightElement() {
+    ArrayList<Integer> list =
+        new ArrayList<>(Arrays.asList(1, 3, 5, 7, 9));
+
+    int result = bs.binarySearch(list, 0, list.size() - 1, 9);
+
+    assertEquals(4, result);
+}
 
     @Test
     void testEmptyList() {
